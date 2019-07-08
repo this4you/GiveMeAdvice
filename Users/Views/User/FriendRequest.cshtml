@@ -1,0 +1,27 @@
+﻿@{
+    string uId = ViewBag.UseId;
+
+ }
+
+@if (ViewBag.Already)
+{
+    <h3>Запрос отправлен, или же он у вас в друзьях</h3>
+}
+else
+{
+    if (ViewBag.Start)
+    {
+        
+        using (Ajax.BeginForm("FriendRequest", "User", new AjaxOptions { UpdateTargetId = ViewBag.UseId, HttpMethod = "POST" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("userId", uId)
+            <div class="btn-group">
+                <button type="submit" class="btn btn-link">
+                    <i class="fas fa-user-plus" style="font-size:35px; "></i>
+                </button>
+                
+            </div>
+        }
+    }
+}

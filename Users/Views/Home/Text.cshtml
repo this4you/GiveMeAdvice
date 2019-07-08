@@ -1,0 +1,10 @@
+﻿
+
+@if (ViewBag.Show == false)
+{
+    @Ajax.ActionLink(" ", "Text", new { like = true }, new AjaxOptions { UpdateTargetId = "bestbook" }, new { @class = "fas fa-thumbs-up",style= "color:#2E2E2E" })
+}
+else
+{
+    @Ajax.ActionLink(" ", "Text", new { like = false }, new AjaxOptions { UpdateTargetId = "bestbook" }, new { @class = "far fa-thumbs-up", style = "color:#2E2E2E" })
+}

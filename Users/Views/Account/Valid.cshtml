@@ -1,0 +1,36 @@
+﻿@model Users.Models.NewLayoutModel
+
+@using (Ajax.BeginForm("Login", "Account", null, new AjaxOptions { UpdateTargetId = "validA", HttpMethod = "POST" }, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken();
+
+    <input type="hidden" name="Email" value="Defoult" />
+    <div>
+        <img src="~/Content/logo2.png" style="width:90px;height:90px;" />
+    </div>
+
+    <span class="heading" style="color: #1596bf; margin-bottom:10px;">
+        Авторизация
+    </span>
+    <div class="alert-info" style="height:40px;margin-bottom:20px;padding:10px;">
+        @Html.ValidationSummary(true)
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control bg-danger", placeholder = "Nickname " })
+        <i class="fa fa-user"></i>
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control bg-danger", placeholder = "Password", type = "password" })
+        <i class="fa fa-lock"></i>
+    </div>
+    <div class="form-group mb-5">
+        <div class="main-checkbox">
+            <input type="checkbox" value="none" id="checkbox1" name="check" />
+            <label for="checkbox1"></label>
+        </div>
+        <span class="text">Запомнить</span>
+        <button type="submit" class="btn btn-default">ВХОД</button>
+    </div>
+
+
+}

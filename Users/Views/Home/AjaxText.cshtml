@@ -1,0 +1,13 @@
+﻿<div>
+    @ViewBag.Da
+</div>
+<div>
+    @using (Ajax.BeginForm("AjaxText", new AjaxOptions { UpdateTargetId = "results", HttpMethod = "POST" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.TextBox("mystring");
+        <button type="submit"  class="btn btn-link">
+           <i class = "far fa-thumbs-up " style = "color:#2E2E2E"></i>
+        </button>
+    }
+</div>

@@ -1,0 +1,182 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="animate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="line-awesome.css" rel="stylesheet" />
+    <link href="NewCSS.css" rel="stylesheet" />
+    <link href="responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="slick.css" rel="stylesheet" />
+    <link href="slick-theme.css" rel="stylesheet" />
+    <link href="autorizationCss.css" rel="stylesheet" />
+
+    <title>NEW DESIGN</title>
+</head>
+<body>
+   
+
+    <div class="wrapper">
+
+        <header>
+            <div class="container">
+                <div class="header-data">
+                    <div class="logo" style="margin-top:5px; margin-bottom:5px;">
+                        <a href="index.html" title=""><img src="logo2.png" alt="" style="width:65px;height:65px; "></a>
+
+                    </div>
+                    <div style="  float: left;  width: 60%; text-align: right;padding-right: 13px;">
+                        <div style="color:white; font-size:50px; margin-top:20px;">
+                            Give me an advice
+                        </div>
+                    </div>
+                    <div class="user-account p-3" style="color:white; font-size:18px;" data-toggle="modal" data-target="#autorizationModal">
+                        <button class="btn btn-link" style="color:white;text-decoration: none; ">
+                            <i class="fas fa-sign-in-alt "> Войти</i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
+        <div class="container mt-5">
+            <div class="jumbotron">
+                <div class="container">
+
+                    <img src="logo2.png" class="mr-2" style="width:150px;height:150px;" />
+                    <h1 class="display-4" style="color: #1596bf;">Give me an advice</h1>
+                    <p class="lead">
+                        Всі люди кожного дня приймають певні рішення. Але вибір рішення зазвичай створюється на основі аналізу ситуації і вибору потрібного варіанту. Дуже часто людина не наважується взяти на себе повну відповідальність в виборі, як мінімум людині необхідно мати певні аргументи в ту чи іншу сторону.  Щоб отримати більше інформації і зробити об’єктивне рішення ми звертаємося до порад інших людей.
+                        «Give me an advice» надає людям можливість просити та давати поради людям в режимі реального часу за допомогою комп’ютера або телефону.
+                        Користувач може створити запис на своїй сторінці у вигляді статті на якусь тему , яка потім може комусь допомогти. Але найважливіша функція сайту – це те, що користувач може в будь-який момент часу створити запит до всіх користувачів, друзів або певних груп людей. Запит надається у вигляді запитання і певної інформації , для більш детального розуміння проблеми. Інші користувачі коментують запит , проходять опитування , або просто щось рекомендують. Данна функціональність дає більш об’єктиву та живу оцінку ситуації.
+                    </p>
+                    <hr class="my-4">
+
+                    <p class="lead d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrationModal" style="background-color:#1596bf">
+                            Регистрация
+                        </button>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Modal Autorization -->
+            <div class="modal fade " id="autorizationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="border-radius:30px;">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-md-offset-3 col-md-12">
+                                    <form class="form-horizontal">
+                                        <div>
+                                            <img src="logo2.png" style="width:90px;height:90px;" />
+                                        </div>
+                                        <span class="heading" style="color: #1596bf;">
+                                            Авторизация
+                                        </span>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="inputEmail" placeholder="Nickname">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="form-group help">
+                                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                            <i class="fa fa-lock"></i>
+
+                                        </div>
+                                        <div class="form-group mb-5">
+                                            <div class="main-checkbox">
+                                                <input type="checkbox" value="none" id="checkbox1" name="check" />
+                                                <label for="checkbox1"></label>
+                                            </div>
+                                            <span class="text">Запомнить</span>
+                                            <button type="submit" class="btn btn-default">ВХОД</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </div>
+                </div>
+            </div>
+            <!--End  Modal Autorization -->
+            <!-- Modal Registration -->
+            <div class="modal fade " id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="border-radius:30px;">
+                        <div class="container">
+                            <div class="row" >
+
+                                <div class="col-md-offset-3 col-md-12" >
+                                    <form class="form-horizontal">
+                                        <div>
+                                            <img src="logo2.png" style="width:90px;height:90px;" />
+                                        </div>
+                                        <span class="heading" style="color: #1596bf;">
+                                            Дать совет
+                                        </span>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="inputEmail" placeholder="Название совета">
+                                            <i class="fas fa-signature"></i>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <select id="countires" name="countires" class="form-control" >
+                                                <option value="">Countries</option>
+                                                <option>Russia</option>
+                                                <option>USA</option>
+                                                <option>Canada</option>
+                                                <option>France</option>
+                                            </select>
+                                            <i class="fas fa-sort"></i>
+                                        </div>
+
+                                        <div class="form-group" >
+                                            <textarea class="form-control"style="height:100px;" id="inputEmail" placeholder="E-mail" rows="20"></textarea>
+                                            <i class="fas fa-align-justify"></i>
+                                        </div>
+
+
+                                        <div class="form-group">
+
+                                            <input type="file" name="Image" id="photo" class="hide" placeholder="Photo" />
+                                            <label for="photo" class="form-control pt-2 ml-0 pl-0">Выбрать фото</label>
+                                            <i class="fas fa-camera-retro"></i>
+                                        </div>
+                                        <!--<div> Загрузить картинку <input type="file" name="Image" /></div>-->
+                                        <div class="form-group mb-2 d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-default">ДОБАВИТЬ ЗАПИСЬ</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </div>
+                </div>
+            </div>
+            <!--End  Modal Registration -->
+
+        </div>
+
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="js/scrollbar.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

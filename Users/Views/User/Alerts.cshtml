@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Users.Entity.Request>
+
+@{
+    ViewBag.Title = "Alerts";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container">
+    @foreach (var request in Model)
+    {
+        Html.RenderPartial("FriendAlert", request);
+    }
+</div>

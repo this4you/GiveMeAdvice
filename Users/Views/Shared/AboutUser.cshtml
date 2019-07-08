@@ -1,0 +1,39 @@
+﻿@model Users.Models.AppUser
+<style>
+    .user-profile-ov .btn-group .btn i {
+        color: #1596bf;
+        font-size:18px;
+    }
+</style>
+
+<div class="user-profile-ov">
+    <div class="d-flex  justify-content-between">
+        <h3  style="margin-top:8px;">О себе</h3>
+        @using (Ajax.BeginForm("AddAbout", "Profile", new AjaxOptions { UpdateTargetId = "about", HttpMethod = "POST" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="btn-group " >
+                <button type="submit" class="btn btn-link">
+                    <i class="far fa-edit"></i>
+                </button>
+            </div>
+        }
+    </div>
+    <div id="about">
+        @if (Model.Description == null)
+        {
+            <div class="alert alert-primary" role="alert">
+                <p style="font-weight:bold;font-size:20px; color:#1596bf;"> Здесь ничего  нету, добавте информацию!  :) </p>
+            </div>
+
+        }
+        else
+        {
+            <p>@Model.Description</p>
+
+        }
+    </div>
+
+
+</div><!--user-profile-ov end-->
+

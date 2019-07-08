@@ -1,0 +1,27 @@
+﻿@model Users.Models.AppUser
+<div class="row align-items-center mt-3" style="border:3px solid grey; padding:8px; border-radius: 10px; font-size:20px;">
+
+    <div class="col-3">
+        <img src="../../Content/аватар.jpg" style="width: 70px;height: 70px; border-radius: 40px;" />
+        <span style="font-size:40px; margin-left:10px;"> @Model.UserName</span>
+    </div>
+    <div class="col-2">
+        Подписчики <span class="badge badge-light">56</span>
+    </div>
+    <div class="col">
+        Подписки<span class="badge badge-light">42</span>
+    </div>
+    <div class="col">
+        Друзья <span class="badge badge-light">1</span>
+    </div>
+    <div class="col">
+        Советы <span class="badge badge-light">@Model.Advices.Count()</span>
+    </div>
+    <div class="col d-flex justify-content-center">
+
+            <div id="@Model.Id">
+                @{ Html.RenderAction("FriendRequest", "User", new { userId = Model.Id, start = true }); }
+            </div>
+
+    </div>
+</div>

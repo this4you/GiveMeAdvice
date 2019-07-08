@@ -1,0 +1,8 @@
+﻿model IEnumerable<string>
+    @{
+        ViewBag.Title = "Ошибка";
+    }
+    <div class="alert alert-danger">
+        Ошибка!
+    </div>
+    @Html.ActionLink("OK", "Index","Home", null, new { @class = "btn btn-default" })

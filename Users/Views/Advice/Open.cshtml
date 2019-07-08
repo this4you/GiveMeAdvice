@@ -1,0 +1,164 @@
+﻿@model Users.Entity.Advice
+
+@{
+    ViewBag.Title = Model.User.UserName + " " + Model.AdviceId;
+    Layout = "~/Views/Shared/_NewUserLayout.cshtml";
+    Users.Models.AppUser user = ViewBag.User;
+}
+<main>
+    <div class="main-section">
+        <div class="main-section-data">
+            <div class="row" style="max-width:700px; margin:0 auto;">
+                <style>
+
+                    .ed-opts .dropdown-toggle::after {
+                        display: none;
+                    }
+
+                    .ed-opts .dropdown-toggle {
+                        color: #898989;
+                        background-color: white;
+                        border: none;
+                    }
+
+                        .ed-opts .dropdown-toggle:hover {
+                            color: #898989;
+                            background-color: white;
+                            border: none;
+                        }
+
+                    .ed-opts .dropdown-menu .dropdown-item:first-of-type {
+                        border-bottom: 1px solid #a1acb7;
+                    }
+
+                    .ed-opts .dropdown-menu .dropdown-item:hover {
+                        color: #1596bf;
+                    }
+
+                    .ed-opts .dropdown-menu .dropdown-item {
+                        color: #7e868e;
+                        padding: 10px;
+                        text-align: center;
+                    }
+                    .job_descp div p {
+                        font-size: 20px;
+                        text-indent: 1.5em;
+                    }
+                    .job_descp h1 {
+                        padding-left:20px;
+                        font-style:normal;
+                        font-weight: bold;
+                        font-size: 35px;
+                        margin-bottom:20px;
+                        color:gray;
+                        
+                    }
+                    .job_descp img{
+                        max-width:500px;
+                        max-height:500px;
+                        float:right;
+                        margin:10px;
+                    }
+                    .comment-list .comment  .active {
+                        color : #1596bf;
+                    }
+                </style>
+
+                <div class="post-bar">
+                    <div class="post_topbar">
+                        <div class="usy-dt">
+                            @if (Model.User.Photo != null && Model.User.PhotoType != null)
+                            {
+                                <img src="@Url.Action("GetAvatar", "User", new { userId = Model.UserId })" alt=" " style="width:50px;height:50px;">
+                            }
+                            else
+                            {
+                                <img src="~/Content/defaultAvatar.png" alt="" style="width:50px;height:50px;">
+                            }
+                            <div class="usy-name">
+                                <h3>@Model.User.UserName</h3>
+                                <span><i class="far fa-clock mr-1"></i>@Model.Data.ToShortDateString()</span>
+                            </div>
+                        </div>
+                        <div class="ed-opts">
+                            <div class="dropdown">
+                                <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v ed-opts-open " style="font-size:20px;"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                                    @{ Html.RenderAction("Options", "Advice", new { advice = Model }); }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="epi-sec">
+
+                        <ul class="bk-links">
+                            <li><a href="#" title=""><i class="far fa-bookmark" style="font-size:16px"></i></a></li>
+                            <li><a href="#" title="" class="bid_now">@Model.Category.Name</a></li>
+                        </ul>
+                    </div>
+                    <div class="job_descp">
+                        <h1 style="overflow:hidden;">@Model.Headline</h1>
+                        @if (Model.Photo != null && Model.PhotoType != null)
+                        {
+                            <img src="@Url.Action("GetImage", "Advice",new {advicesID = Model.AdviceId })" alt=" ">
+                        }
+                        <div>
+                            <p>
+                                @Model.Text
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <div class="job-status-bar">
+
+                        <ul class="like-com">
+
+                            <li>
+                                <div id="@Model.AdviceId.ToString()">
+                                    @{ Html.RenderAction("Like", "Advice", new { adviceid = Model.AdviceId, start = false }); }
+                                </div>
+                            </li>
+                            <li>
+                                <div><a href="#" title="" class="com"><i class="far fa-comments"></i> Comment @Model.Comments.Count </a></div>
+                            </li>
+                        </ul>
+                        <a><i class="far fa-eye"></i>Views 50</a>
+                    </div>
+
+                </div>
+                <div class="comment-section">
+                    @{Html.RenderAction("ShowComments", "Comment", new {adviceId = @Model.AdviceId }); }
+                    <div class="post-comment">
+                        <div class="cm_img" style="margin-right:20px; ">
+                            <img src="~/Content/ava.PNG" style="width:50px;height:50px;border-radius:35px;" />
+                        </div>
+                        <div class="comment_box">
+                            @using (Ajax.BeginForm("Create", "Comment", new AjaxOptions { UpdateTargetId = "comment", HttpMethod = "POST" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <input type="text" placeholder="Post a comment" style="width:387px;" id="Ctext" name="Ctext" />
+                                <button type="submit" style="background-color:#1596bf;">Send</button>
+
+                                @Html.Hidden("adviceId", @Model.AdviceId)
+                            }
+                            @*<form>
+            <input type="text" placeholder="Post a comment" style="width:387px;">
+            <button type="submit" style="background-color:#1596bf;">Send</button>
+        </form>*@
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+
+

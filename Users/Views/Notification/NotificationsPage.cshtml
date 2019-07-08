@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Notifications";
+    Layout = "~/Views/Shared/_NewUserLayout.cshtml";
+}
+<style>
+    .n-menu {
+        margin-bottom: 40px;
+        background-color: rgb(254, 254, 254);
+        color: #1596bf;
+    }
+
+        .n-menu .flex-fill {
+            font-weight: bold;
+            border-right: solid 3px #1596bf;
+            text-align: center;
+        }
+
+            .n-menu .flex-fill:last-of-type {
+                border-right: none;
+            }
+
+            .n-menu .flex-fill a {
+                font-size: 23px;
+                color: #1596bf;
+                display: block;
+                text-align: center;
+                height: 100%;
+            }
+
+            .n-menu .flex-fill.n-selected {
+                background: #1596bf; /* Old browsers */
+                color: white;
+            }
+            .n-menu .flex-fill.n-selected a {
+                color:white;
+            }
+</style>
+
+<section class="companies-info">
+    <div class="container ">
+
+        <div class="d-flex bd-highlight n-menu">
+            <div class="p-2 flex-fill bd-highlight n-selected">
+                @Ajax.ActionLink(" ", "NoFriend",null ,new AjaxOptions { UpdateTargetId = "companies-list" }, new { @class = "fas fa-user-friends" })
+            </div>
+            <div class="p-2 flex-fill bd-highlight">
+                @Ajax.ActionLink(" ", "NoSubscribe", null, new AjaxOptions { UpdateTargetId = "companies-list" }, new { @class = "fas fa-bullhorn" })
+            </div>
+            <div class="p-2 flex-fill bd-highlight">
+                @Ajax.ActionLink(" ", "NoComments", null, new AjaxOptions { UpdateTargetId = "companies-list" }, new { @class = "far fa-comments" })
+            </div>
+        </div>
+     @{Html.RenderAction("NoFriends"); }
+    </div>
+</section><!--companies-info end-->

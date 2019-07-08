@@ -1,0 +1,51 @@
+﻿@{
+
+    string advId = ViewBag.AdviceId;
+}
+<style>
+    .btn i {
+        color: #bdbdbd;
+        margin-right:10px;
+    }
+    .btn-group .btn-link {
+        color: #bdbdbd;
+        text-decoration:none;
+    }
+    
+
+</style>
+
+@if (ViewBag.Show == true)
+{
+
+        using (Ajax.BeginForm("Like", "Advice", new AjaxOptions { UpdateTargetId = ViewBag.AdviceId, HttpMethod = "POST" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("adviceid", advId)
+            <div class="btn-group">
+                <button type="submit" class="btn btn-link">
+                    <i class="fas fa-heart"></i> Like
+                </button>
+                <span>  @ViewBag.Count</span>
+                </div>
+        }
+    
+}
+else
+{
+
+    
+        using (Ajax.BeginForm("Like", "Advice", new AjaxOptions { UpdateTargetId = ViewBag.AdviceId, HttpMethod = "POST" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("adviceid", advId)
+<div class="btn-group">
+    <button type="submit" class="btn btn-link">
+        <i class="far fa-heart"></i>Like
+    </button>
+    <span>  @ViewBag.Count</span>
+</div>
+        }
+    
+}
+

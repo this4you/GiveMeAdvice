@@ -1,0 +1,148 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="animate.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="~/Content/line-awesome.css" rel="stylesheet" />
+    <link href="~/Content/NewCSS.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="~/Content/slick.css" rel="stylesheet" />
+    <link href="~/Content/slick-theme.css" rel="stylesheet" />
+    <link href="~/Content/autorizationCss.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <style>
+        nav ul li {
+            color: white;
+        }
+
+        .themes .social_links span {
+            background-color: #1596bf;
+            padding: 8px;
+        }
+
+        .themes .social_links a {
+            color: grey;
+            font-size: 17px;
+        }
+
+    </style>
+
+    <title>NEW DESIGN</title>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <header>
+            <div class="container">
+                <div class="header-data">
+                    <div class="logo" style="margin-top:5px">
+                        <a href="index.html" title=""><img src="~/Content/logo2.png" alt="" style="width:45px;height:45px; "></a>
+
+                    </div>
+
+                    <div class="search-bar">
+                        <form>
+                            <input type="text" name="search" placeholder="Search...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div><!--search-bar end-->
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="@Url.Action("ShowNewsLine","NewsLine")" title="">
+                                    <span><i class="fas fa-home"></i></span>
+                                    Главная
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("PersonalPage", "Profile")">
+                                    <span><i class="fas fa-user"></i></span>
+                                    Личная
+
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="">
+                                    <span><i class="fas fa-th-large"></i></span>
+                                    Группы
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("ShowUsers","People")" title="">
+                                    <span><i class="fas fa-users"></i></span>
+                                    Профили
+                                </a>
+                                <ul>
+                                    @*<li><a href="user-profile.html" title="">User Profile</a></li>
+                                    <li><a href="my-profile-feed.html" title="">my-profile-feed</a></li>*@
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" title="">
+                                    <span><i class="fas fa-globe"></i></span>
+                                    Советы
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="" class="not-box-open">
+                                    <span><i class="fas fa-comments"></i></span>
+                                    Сообщения
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="" class="not-box-open dropdown-toggle" type="button" id="dropdownNotific" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="fas fa-comments"></i></span>
+                                    Уведомления
+                                </a>
+                                @{Html.RenderAction("ShowNotifications", "Notification"); }
+                            </li>
+                        </ul>
+                    </nav><!--nav end-->
+                    <div class="menu-btn">
+                        <a href="#" title=""><i class="fa fa-bars"></i></a>
+                    </div><!--menu-btn end-->
+
+                    <div class="user-account" style="border:none;">
+                        @{ Html.RenderAction("UserHeader", "User"); }
+                    </div>
+
+                </div>
+
+            </div>
+
+            @RenderSection("TopImage", false)
+
+            @*<section class="cover-sec">                         Зона с фоном
+                <img src="cover-img.jpg" alt="">
+            </section>*@
+
+
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+   @{Html.RenderAction("CreateAdvice", "Advice"); }
+
+
+
+    </div><!--theme-layout end-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="~/Scripts/newjs/script.js"></script>
+    <script src="~/Scripts/newjs/slick.min.js"></script>
+    <script src="~/Scripts/newjs/scrollbar.js"></script>
+</body>
+</html>

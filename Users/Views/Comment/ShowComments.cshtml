@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Users.Entity.Comment>
+    <div class="comment-sec" id="comment">
+        <ul>
+            @foreach (var el in Model)
+            {
+            <li>
+                <div class="comment-list">
+                    @if (el.User.Photo != null && el.User.PhotoType != null)
+                    {
+                        <div class="bg-img">
+                            <img src="@Url.Action("GetAvatar", "User",new { userId = el.UserId })" alt=" " style="width:50px;height:50px;">
+                        </div>
+                    }
+                    else
+                    {  <div class="bg-img">
+                            <img src="~/Content/defaultAvatar.png" alt="" style="width:50px;height:50px;">
+                        </div>
+                    }
+                            <div class="comment">
+                                <h3>@el.User.UserName</h3>
+                                <span>
+                                    <i class="far fa-clock"></i>
+                                    3 min ago
+                                </span>
+                                <p>
+                                   @el.Text
+                                </p>
+                                <a title="" class="" href="#">
+                                    <i class="fas fa-reply"></i>
+                                    Ответить
+                                </a>
+                            </div>
+                </div>
+             </li>
+            }
+            
+        </ul>
+    </div>

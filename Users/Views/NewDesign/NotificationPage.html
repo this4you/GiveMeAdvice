@@ -1,0 +1,448 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="animate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="line-awesome.css" rel="stylesheet" />
+    <link href="NewCSS.css" rel="stylesheet" />
+    <link href="responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="slick.css" rel="stylesheet" />
+    <link href="slick-theme.css" rel="stylesheet" />
+    <title>NotificationPage</title>
+    <style>
+        nav ul li {
+            color: white;
+        }
+
+        .themes .social_links span {
+            background-color: #1596bf;
+        }
+
+        .themes .social_links a {
+            color: grey;
+            font-size: 17px;
+        }
+
+
+
+        .dropdown-menu a {
+            color: #898989;
+            padding: 10px 10px 15px 10px;
+            border-bottom: 2px solid #898989;
+            text-align: center;
+            font-size: 17px;
+        }
+
+            .dropdown-menu a:first-child {
+                padding-top: 10px;
+                margin-top: 0;
+            }
+
+            .dropdown-menu a:last-child {
+                color: #716b6b;
+                border-bottom: none;
+                padding-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .dropdown-menu a i {
+                color: #1596bf;
+                font-size: 18px;
+                margin-right: 10px;
+            }
+
+        .dropdown-menu .dropdown-item:hover {
+            color: #1596bf;
+            background-color: white !important;
+        }
+
+        .ed-opts .dropdown-toggle::after {
+            display: none;
+        }
+
+        .ed-opts .dropdown-toggle {
+            color: #898989;
+            background-color: white;
+            border: none;
+        }
+
+            .ed-opts .dropdown-toggle:hover {
+                color: #898989;
+                background-color: white;
+                border: none;
+            }
+
+        .ed-opts .dropdown-menu .dropdown-item:first-of-type {
+            border-bottom: 1px solid #a1acb7;
+        }
+
+        .ed-opts .dropdown-menu .dropdown-item:hover {
+            color: #1596bf;
+        }
+
+        .ed-opts .dropdown-menu .dropdown-item {
+            color: #7e868e;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .n-menu {
+            margin-bottom: 40px;
+            background-color: rgb(254, 254, 254);
+            color: #1596bf;
+        }
+            .n-menu .flex-fill {
+                font-weight: bold;
+                border-right: solid 3px #1596bf;
+                text-align: center;
+            }
+            .n-menu .flex-fill:last-of-type{
+                border-right:none;
+            }
+                .n-menu .flex-fill i {
+                    font-size: 23px;
+                    
+                }
+                .n-menu .flex-fill.n-selected {
+                    background: #1596bf; /* Old browsers */
+                    color:white;
+                }
+        /* colot  #1596bf*/
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <header>
+            <div class="container">
+                <div class="header-data">
+                    <div class="logo" style="margin-top:5px">
+                        <a href="index.html" title=""><img src="logo2.png" alt="" style="width:45px;height:45px; "></a>
+
+                    </div>
+
+                    <div class="search-bar">
+                        <form>
+                            <input type="text" name="search" placeholder="Search...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div><!--search-bar end-->
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="index.html" title="">
+                                    <span><i class="fas fa-home"></i></span>
+                                    Главная
+                                </a>
+                            </li>
+                            <li>
+                                <span><i class="fas fa-user"></i></span>
+
+                                <a href="companies.html" title="">
+
+                                    Личная
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="projects.html" title="">
+                                    <span><i class="fas fa-th-large"></i></span>
+                                    Группы
+                                </a>
+                            </li>
+                            <li>
+                                <a href="profiles.html" title="">
+                                    <span><i class="fas fa-users"></i></span>
+                                    Профили
+                                </a>
+                                <ul>
+                                    <li><a href="user-profile.html" title="">User Profile</a></li>
+                                    <li><a href="my-profile-feed.html" title="">my-profile-feed</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="jobs.html" title="">
+                                    <span><i class="fas fa-globe"></i></span>
+                                    Советы
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="" class="not-box-open">
+                                    <span><i class="fas fa-comments"></i></span>
+                                    Ты нужен
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="" class="not-box-open">
+                                    <span><i class="fas fa-bell"></i></span>
+                                    Уведомления
+                                </a>
+                            </li>
+                        </ul>
+                    </nav><!--nav end-->
+                    <div class="menu-btn">
+                        <a href="#" title=""><i class="fa fa-bars"></i></a>
+                    </div><!--menu-btn end-->
+
+                    <div class="user-account">
+                        <div class="user-info p-2 ">
+                            <img src="ava.PNG" alt="" style="width:40px;height:40px;">
+                            <a href="#" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vlad</a>
+                            <div class="dropdown-menu " aria-labelledby="dropdownMenuButton" style="background-color:white; margin-left:-108px; margin-top:25px;width:70px !important; border-top-right-radius:0; border-top-left-radius:0;">
+                                <a class="dropdown-item" href="#"><i class="fas fa-plus-circle"></i>Дать совет</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-tools"></i> Настройки</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Выйти</a>
+
+                                <!--<div class="list-bar">
+                                    <div> <i class="fas fa-plus-circle"></i><a href="asd" style="color:black">Дать совет</a></div>
+                                    <div><i class="fas fa-tools"></i> Настройки</div>
+                                    <div><i class="fas fa-sign-out-alt"></i>Выйти</div>
+                                </div>-->
+                                <!--<div class="d-flex justify-content-center">
+                                    Дать совет
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-center">
+                                    Настройки
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-center">
+                                    Выйти
+                                </div>-->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <section class="companies-info">
+            <div class="container ">
+
+                <div class="d-flex bd-highlight n-menu">
+                    <div class="p-2 flex-fill bd-highlight n-selected"><i class="fas fa-user-friends"></i></div>
+                    <div class="p-2 flex-fill bd-highlight"><i class="fas fa-bullhorn"></i></div>
+                    <div class="p-2 flex-fill bd-highlight"><i class="far fa-comments"></i></div>                    
+                </div>
+
+                <div class="companies-list">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="ava.PNG" style="width:60px;height:60px;" />
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon2.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon3.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon4.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon5.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon6.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon7.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon8.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon9.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon10.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon11.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="company_profile_info">
+                                <div class="company-up-info">
+                                    <img src="images/resources/pf-icon12.png" alt="">
+                                    <h3>John Doe</h3>
+                                    <h4>Graphic Designer</h4>
+                                    <ul>
+                                        <li><a href="#" title="" class="follow">Follow</a></li>
+                                        <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="#" title="" class="hire-us">Hire</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" title="" class="view-more-pro">View Profile</a>
+                            </div><!--company_profile_info end-->
+                        </div>
+                    </div>
+                </div><!--companies-list end-->
+                <div class="process-comm">
+                    <a href="#" title=""><img src="images/process-icon.png" alt=""></a>
+                </div>
+            </div>
+        </section><!--companies-info end-->
+
+
+
+
+
+
+
+
+
+
+    </div><!--theme-layout end-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="js/scrollbar.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

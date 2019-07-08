@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Users.Entity.Advice>
+<style>
+    .process-comm a {
+        color: grey;
+        font-size: 50px;
+    }
+</style>
+<div class="product-feed-tab current" >
+    <div class="posts-section">
+        @if(ViewBag.UserProfile == null){
+        <div class="d-flex justify-content-center" style="color:white; font-size:18px;" data-toggle="modal" data-target="#addAdviceModal">
+            <button class="btn btn-link" style="text-decoration: none; ">
+                <i class="fas fa-plus btn" style="font-size:100px; color:#1596bf; margin-bottom:40px;"> </i>
+            </button>
+        </div>
+        }
+
+        @foreach (var advice in Model.OrderByDescending(p => p.Data))
+        {
+            Html.RenderPartial("AdviceN", advice);
+        }
+        @if (ViewBag.Amount != 0)
+        {
+    <div class="process-comm">
+        @*<a href="#" title=""><i class="fas fa-ellipsis-h"></i></a>*@
+        @if (ViewBag.UserProfile == null)
+        {
+            @Ajax.ActionLink(" ", "ShowAdvices", "Profile", new { category = ViewBag.Category, amount = (int)ViewBag.Amount + 5, }, new AjaxOptions { UpdateTargetId = "post-sect" }, new { @class = "fas fa-ellipsis-h" })
+        }
+        else
+        {
+            @Ajax.ActionLink(" ", "ShowAdvices", "Profile", new { category = ViewBag.Category, userName = ViewBag.UserProfile.UserName, amount = (int)ViewBag.Amount + 5, }, new AjaxOptions { UpdateTargetId = "post-sect" }, new { @class = "fas fa-ellipsis-h" })
+        }
+    </div><!--process-comm end-->
+        }
+
+    </div>
+</div>

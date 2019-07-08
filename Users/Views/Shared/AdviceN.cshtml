@@ -1,0 +1,103 @@
+﻿@model Users.Entity.Advice
+    <style>
+
+        .ed-opts .dropdown-toggle::after {
+            display: none;
+        }
+
+        .ed-opts .dropdown-toggle {
+            color: #898989;
+            background-color: white;
+            border: none;
+        }
+
+            .ed-opts .dropdown-toggle:hover {
+                color: #898989;
+                background-color: white;
+                border: none;
+            }
+
+        .ed-opts .dropdown-menu .dropdown-item:first-of-type {
+            border-bottom: 1px solid #a1acb7;
+        }
+
+        .ed-opts .dropdown-menu .dropdown-item:hover {
+            color: #1596bf;
+        }
+
+        .ed-opts .dropdown-menu .dropdown-item {
+            color: #7e868e;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+<div class="post-bar">
+    <div class="post_topbar">
+        <div class="usy-dt">
+            @if (Model.User.Photo != null && Model.User.PhotoType != null)
+            {
+                <img src="@Url.Action("GetAvatar", "User",new { userId = Model.UserId })" alt=" "  style="width:40px;height:40px;">
+            }
+            else
+            {
+                <img src="~/Content/defaultAvatar.png" alt="" style="width:40px;height:40px;">
+            }
+            <div class="usy-name">
+                <h3>@Model.User.UserName</h3>
+                <span><i class="far fa-clock mr-1"></i>@Model.Data.ToShortDateString()</span>
+            </div>
+        </div>
+        <div class="ed-opts">
+            <div class="dropdown">
+                <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v ed-opts-open " style="font-size:20px;"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                    @{ Html.RenderAction("Options", "Advice",new { advice = Model }); }
+                    @*<button class="dropdown-item" type="button">Редактировать</button>
+
+                    @using (Html.BeginForm("DeleteAdvice", "Advice", new { adviceId = Model.AdviceId }, FormMethod.Post, null))
+                    {
+                        <button class="dropdown-item" type="submit">Удалить</button>
+                    }*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="epi-sec">
+
+        <ul class="bk-links">
+            <li><a href="#" title=""><i class="far fa-bookmark" style="font-size:16px"></i></a></li>
+            <li><a href="#" title="" class="bid_now">@Model.Category.Name</a></li>
+        </ul>
+    </div>
+    <div class="job_descp">
+       
+            <h3  style="overflow:hidden;">@Model.Headline</h3>
+      
+        <div>
+            <p class="overflow-hidden" style="height:50px;">
+                @Model.Text
+            </p> 
+             <a href="@Url.Action("Open","Advice",new {adviceId = Model.AdviceId, userName = Model.User.UserName })" title="">view more</a>
+        </div>
+    </div>
+    <div class="job-status-bar">
+        
+        <ul class="like-com">
+            <li>
+                <div id="@Model.AdviceId.ToString()">
+                    @{ Html.RenderAction("Like", "Advice", new { adviceid = Model.AdviceId, start = false }); }
+                </div>
+            </li>
+            <li>
+                <div><a href="#" title="" class="com"><i class="far fa-comments"></i> Comment 15 </a></div>
+            </li>
+        </ul>
+            <a><i class="far fa-eye"></i>Views 50</a>
+    </div>
+    
+</div>

@@ -1,0 +1,153 @@
+﻿@model Users.Models.AppUser
+
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_NewUserLayout.cshtml";
+}
+
+@section TopImage
+{
+    <section class="cover-sec">
+        <img src="~/Content/cover-img.jpg" alt="">
+    </section>
+}
+<style>
+    .tab-feed li i {
+        font-size: 30px;
+        margin-bottom: 10px;
+        color: lightgrey;
+    }
+
+    .tab-feed li a {
+        color: dimgrey;
+    }
+</style>
+<div class="main-section">
+    <div class="container">
+        <div class="main-section-data">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="main-left-sidebar">
+
+                        <div class="user_profile">
+                            <div class="user-pro-img">
+
+                                @if (Model.Photo != null && Model.PhotoType != null)
+                                {
+                                    <img src="@Url.Action("GetAvatar", "User",new { userId = Model.Id })" alt=" " style="width:200px;height:200px;">
+                                }
+                                else
+                                {
+                                    <img src="~/Content/defaultAvatar.png" alt="" style="width:200px;height:200px;">
+                                }
+                                <a href="#" title=""><i class="fa fa-camera"></i></a>
+
+
+                            </div><!--user-pro-img end-->
+                            <div class="user_pro_status">
+
+                                <ul class="flw-status">
+                                    <li>
+                                        <span>Друзья</span>
+                                        <b>@Model.ImFriend.Count()</b>
+                                    </li>
+                                    <li>
+                                        <span>Подписки</span>
+                                        <b>155</b>
+                                    </li>
+                                </ul>
+                                <ul class="flw-status mt-4">
+                                    <li>
+                                        <span>Подписчики</span>
+                                        <b>34</b>
+                                    </li>
+                                </ul>
+                                <ul class="flw-status mt-4">
+                                    <li>
+                                        <span>Советы</span>
+                                        <b>@Model.Advices.Count()</b>
+                                    </li>
+                                </ul>
+                            </div><!--user_pro_status end-->
+                            <ul class="social_links">
+                                <li><a href="#" title=""><i class="fab fa-facebook"></i> Http://www.facebook.com/john...</a> </li>
+                                <li><a href="#" title=""><i class="fab fa-pinterest"></i> Http://www.pinterest.com/j..</a> </li>
+                                <li><a href="#" title=""><i class="fab fa-instagram"></i> Http://www.instagram.com/n...</a> </li>
+
+                            </ul>
+                        </div><!--user_profile end-->
+
+                    </div><!--main-left-sidebar end-->
+                </div>
+                <div class="col-lg-6">
+                    <div class="main-ws-sec">
+                        <div class="user-tab-sec">
+                            <h3>@Model.UserName</h3>
+                            <div class="star-descp">
+                                <span>Student</span>
+                                <ul>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star-half-o"></i></li>
+                                </ul>
+                            </div><!--star-descp end-->
+                            <div class="tab-feed">
+                                <ul>
+                                    <li data-tab="">
+                                        <i class='fas fa-comment-medical'></i>
+                                        <span>
+                                            @Ajax.ActionLink("Советы", "ShowAdvices", "Profile",new {userName = Model.UserName }, new AjaxOptions { UpdateTargetId = "post-sect" },null)
+                                        </span>
+                                    </li>
+                                    <li data-tab="">
+                                        <i class="fas fa-info-circle" style="font-size:30px;margin-bottom:10px;color:lightgrey;"></i>
+                                        <span>
+                                            @Ajax.ActionLink("О себе", "AboutUser", "Profile",new {userName = Model.UserName }, new AjaxOptions { UpdateTargetId = "post-sect" }, null)
+                                        </span>
+                                    </li>
+                                    <li data-tab="">
+                                        <a href="#" title="">
+                                            <i class="fas fa-bookmark" style="font-size:30px;margin-bottom:10px;color:lightgrey;"></i>
+                                            <span>Избранные</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div><!-- tab-feed end-->
+                        </div><!--user-tab-sec end-->
+                        <!--Пост-->
+                        <div id="post-sect">
+                            <div class="product-feed-tab current">
+                                <div class="posts-section">
+                                    @{Html.RenderAction("ShowAdvices", "Profile", new {userName = Model.UserName });}><!--process-comm end-->
+                                </div><!--posts-section end-->
+                            </div><!--product-feed-tab end-->
+                        </div>
+
+
+
+
+                    </div><!--main-ws-sec end-->
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="right-sidebar">
+                        <div class="widget widget-portfolio">
+                            <div class="wd-heady">
+                                <h3>Темы советов</h3>
+                                <img src="images/photo-icon.png" alt="">
+                            </div>
+                            <div class="themes">
+                                @{ Html.RenderAction("ShowCategory", "Profile",new {userName = Model.UserName }); }
+
+                            </div>
+                        </div><!--widget-portfolio end-->
+                    </div><!--right-sidebar end-->
+                </div>
+            </div>
+        </div><!-- main-section-data end-->
+    </div>
+</div>
+
+

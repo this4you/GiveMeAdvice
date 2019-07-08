@@ -1,0 +1,55 @@
+﻿
+@model Users.Models.AppUser
+    <style>
+        .dropdown-menu a {
+            color: #898989;
+            padding: 10px 10px 15px 10px;
+            border-bottom: 2px solid #898989;
+            text-align: center;
+            font-size: 17px;
+        }
+
+            .dropdown-menu a:first-child {
+                padding-top: 10px;
+                margin-top: 0;
+            }
+
+            .dropdown-menu a:last-child {
+                color: #716b6b;
+                border-bottom: none;
+                padding-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .dropdown-menu a i {
+                color: #1596bf;
+                font-size: 18px;
+                margin-right: 10px;
+            }
+
+        .dropdown-menu .dropdown-item:hover {
+            color: #1596bf;
+            background-color: white !important;
+        } 
+
+    </style>
+<div class="user-info p-2 " style="width:200px; border-left:1px solid #57c2e0; ">
+    @if (Model.Photo != null && Model.PhotoType != null)
+    {
+        <img src="@Url.Action("GetAvatar", "User")" alt="" style="width:40px;height:40px;">
+    }
+    else
+    {
+        <img src="~/Content/defaultAvatar.png" alt="" style="width:40px;height:40px;">
+    }
+
+    <a href="#" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >@Model.UserName</a>
+
+    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton" style=" border-top-right-radius:0; border-top-left-radius:0;background-color:white; margin-left:-108px; margin-top:25px;width:70px !important;">
+
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addAdviceModal"><i class="fas fa-plus-circle"></i>Дать совет</a>
+        <a class="dropdown-item" href="#"><i class="fas fa-tools"></i> Настройки</a>
+        <a class="dropdown-item" href="@Url.Action("Logout","Account")"><i class="fas fa-sign-out-alt"></i>Выйти</a>
+
+    </div>
+</div>

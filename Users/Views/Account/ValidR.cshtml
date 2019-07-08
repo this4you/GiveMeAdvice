@@ -1,0 +1,46 @@
+﻿@model Users.Models.NewLayoutModel
+
+@using (Ajax.BeginForm("Registration", "Account", null, new AjaxOptions { UpdateTargetId = "validR", HttpMethod = "POST" }, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    <div>
+        <img src="~/Content/logo2.png" style="width:90px;height:90px;" />
+    </div>
+    <span class="heading" style="color: #1596bf;">
+        Регистрация
+    </span>
+   
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Nickname" })
+        <i class="fa fa-user"></i>
+        <p style="color:red;">@Html.ValidationMessageFor(m => m.Name)</p>
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "E-mail" })
+        <i class="fas fa-at"></i>
+        <p style="color:red;">@Html.ValidationMessageFor(m => m.Email)</p>
+    </div>
+
+
+    <div class="form-group">
+
+        <input type="file" name="Image" id="photo" class="hide" placeholder="Photo" />
+        <label for="photo" class="form-control pt-2 ml-0 pl-0">Выбрать фото</label>
+        <i class="fas fa-camera-retro"></i>
+    </div>
+
+
+    <!--<div> Загрузить картинку <input type="file" name="Image" /></div>-->
+    <div class="form-group help">
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "Password" })
+        <i class="fa fa-lock"></i>
+        <p style="color:red;" >@Html.ValidationMessageFor(m => m.Password)</p>
+    </div>
+    <div class="form-group help">
+        @Html.PasswordFor(x => x.RepeatPassword, new { @class = "form-control", placeholder = "Repeat Password" })
+        <i class="fa fa-lock"></i>
+        <div style="color:red !important;">@Html.ValidationSummary(true)</div>
+    </div>
+    <div class="form-group mb-2 d-flex justify-content-center">
+        <button type="submit" class="btn btn-default">РЕГИСТРАЦИЯ</button>
+    </div>
+}

@@ -1,0 +1,32 @@
+﻿@model Users.Models.ShowUsersModel
+@using Users.Models
+@{ 
+    ViewBag.Title = "ShowUsers";
+    Layout = "~/Views/Shared/_NewUserLayout.cshtml";
+}
+
+
+<section class="companies-info">
+    <div class="container">
+        <div class="company-title  d-flex justify-content-center">
+            <div class="search-bar">
+                <form>
+                    <input type="text" name="search" placeholder="Введите никнейм...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div><!--company-title end-->
+        <div class="companies-list">
+            <div class="row">
+
+                @foreach (var user in Model.Users)
+                {
+                    Html.RenderPartial("User", new UsersModel { MainUser = user,CurrentUser = Model.CurrentUser });
+                }
+                </div>
+            </div><!--companies-list end-->
+            <div class="process-comm">
+                <a href="#" title=""><img src="images/process-icon.png" alt=""></a>
+            </div>
+        </div>
+</section><!--companies-info end-->

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Users.Entity.Request>
+@using Users.Models
+<div class="companies-list">
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            Html.RenderPartial("User", new UsersModel { MainUser = item.UserWho, CurrentUser = item.UserTo });
+
+        }
+
+
+    </div>
+</div>

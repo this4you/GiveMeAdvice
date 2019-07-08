@@ -1,0 +1,14 @@
+﻿@model Users.Entity.Advice
+@if (ViewBag.Current)
+{
+    <button class="dropdown-item" type="button">Редактировать</button>
+
+    using (Html.BeginForm("DeleteAdvice", "Advice", new { adviceId = Model.AdviceId }, FormMethod.Post, null))
+    {
+        <button class="dropdown-item" type="submit">Удалить</button>
+    }
+}
+else
+{
+    <button class="dropdown-item" type="button">Пожаловаться</button>
+}

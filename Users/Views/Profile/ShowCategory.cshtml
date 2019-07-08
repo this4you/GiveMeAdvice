@@ -1,0 +1,12 @@
+﻿@model Users.Models.CategoryModel
+
+
+<ul class="social_links">
+ 
+    @foreach (var link in Model.Categories)
+    {
+        @*@Html.RouteLink(link, new { controller = "Profile", action = "ShowAdvices", category = link + "" }, new { @class = link == ViewBag.SelectedCategory ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action" })*@
+  
+    <li class="d-flex justify-content-between"> @Ajax.ActionLink(link, "ShowAdvices", "Profile", new { category = link + "", userName = Model.User.UserName }, new AjaxOptions { UpdateTargetId = "post-sect" })<span class="badge badge-primary" >@Model.User.Advices.Where(a=>a.Category.Name.Equals(link)).Count()</span></li>
+    }
+</ul>

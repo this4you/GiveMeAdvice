@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Users.Models.AppUser>
+
+@{
+    ViewBag.Title = "ShowPeople";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Users.Models.AppUser current = ViewBag.Current;
+}
+<div class="container">
+    @foreach (var user in Model)
+    {
+        if (user.UsersWho.FirstOrDefault(u => u.UserId2 == current.Id) != null)
+        {
+            Html.RenderPartial("FriendAlert", (user.UsersWho.FirstOrDefault(u => u.UserId2 == current.Id)));
+        }
+        else {
+            Html.RenderPartial("User", user);
+        }
+    }
+</div>
+
+

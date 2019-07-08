@@ -1,0 +1,11 @@
+﻿@model IEnumerable<string>
+
+<ul class="list-group list-group-flush">
+    @Html.RouteLink("Все записи", new { controller = "User", action = "ShowAdvice"}, new { @class = "list-group-item list-group-item-action font-weight-bold" })
+    @foreach (var link in Model)
+    {
+        @Html.RouteLink(link, new { controller = "User", action = "ShowAdvice", category = link + "" }, new { @class = link == ViewBag.SelectedCategory? "list-group-item list-group-item-action active": "list-group-item list-group-item-action" })
+    }
+</ul>
+
+

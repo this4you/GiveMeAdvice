@@ -1,0 +1,194 @@
+﻿@model Users.Models.NewLayoutModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayoutPage.cshtml";
+}
+<div class="wrapper">
+
+    <header>
+        <div class="container">
+            <div class="header-data">
+                <div class="logo" style="margin-top:5px; margin-bottom:5px;">
+                    <a href="index.html" title=""><img src="~/Content/logo2.png" alt="" style="width:65px;height:65px; "></a>
+
+                </div>
+                <div style="  float: left;  width: 60%; text-align: right;padding-right: 13px;">
+                    <div style="color:white; font-size:50px; margin-top:20px;">
+                        Give me an advice
+                    </div>
+                </div>
+                <div class="user-account p-3" style="color:white; font-size:18px;" data-toggle="modal" data-target="#autorizationModal">
+                    <button class="btn btn-link" style="color:white;text-decoration: none; ">
+                        <i class="fas fa-sign-in-alt "> Войти</i>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <div class="container">
+
+                <img src="~/Content/logo2.png" class="mr-2" style="width:150px;height:150px;" />
+                <h1 class="display-4" style="color: #1596bf;">Give me an advice</h1>
+                <p class="lead">
+                    Всі люди кожного дня приймають певні рішення. Але вибір рішення зазвичай створюється на основі аналізу ситуації і вибору потрібного варіанту. Дуже часто людина не наважується взяти на себе повну відповідальність в виборі, як мінімум людині необхідно мати певні аргументи в ту чи іншу сторону.  Щоб отримати більше інформації і зробити об’єктивне рішення ми звертаємося до порад інших людей.
+                    «Give me an advice» надає людям можливість просити та давати поради людям в режимі реального часу за допомогою комп’ютера або телефону.
+                    Користувач може створити запис на своїй сторінці у вигляді статті на якусь тему , яка потім може комусь допомогти. Але найважливіша функція сайту – це те, що користувач може в будь-який момент часу створити запит до всіх користувачів, друзів або певних груп людей. Запит надається у вигляді запитання і певної інформації , для більш детального розуміння проблеми. Інші користувачі коментують запит , проходять опитування , або просто щось рекомендують. Данна функціональність дає більш об’єктиву та живу оцінку ситуації.
+                </p>
+                <hr class="my-4">
+
+                <p class="lead d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrationModal" style="background-color:#1596bf">
+                        Регистрация
+                    </button>
+                </p>
+            </div>
+        </div>
+
+
+        <!-- Modal Autorization -->
+        <div class="modal fade " id="autorizationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="border-radius:30px;">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-offset-3 col-md-12">
+                                <div id="validA">
+                                    @using (Ajax.BeginForm("Login", "Account", null, new AjaxOptions { UpdateTargetId = "validA", HttpMethod = "POST" }, new { @class = "form-horizontal" }))
+                                    {
+                                        @Html.AntiForgeryToken();
+                                        <input type="hidden" name="Email" value="defoult@ukr.net" />
+                                        <div>
+                                            <img src="~/Content/logo2.png" style="width:90px;height:90px;" />
+                                        </div>
+                                        <span class="heading" style="color: #1596bf;">
+                                            Авторизация
+                                        </span>
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Nickname" })
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Password", type = "password" })
+                                            <i class="fa fa-lock"></i>
+                                        </div>
+                                        <div class="form-group mb-5">
+                                            <div class="main-checkbox">
+                                                <input type="checkbox" value="none" id="checkbox1" name="check" />
+                                                <label for="checkbox1"></label>
+                                            </div>
+                                            <span class="text">Запомнить</span>
+                                            <button type="submit" class="btn btn-default">ВХОД</button>
+                                        </div>
+
+                                    }
+                                </div>
+
+                                @*<form class="form-horizontal">
+                                        <div>
+                                            <img src="~/Content/logo2.png" style="width:90px;height:90px;" />
+                                        </div>
+                                        <span class="heading" style="color: #1596bf;">
+                                            Авторизация
+                                        </span>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="inputEmail" placeholder="Nickname">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="form-group help">
+                                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                            <i class="fa fa-lock"></i>
+
+                                        </div>
+                                        <div class="form-group mb-5">
+                                            <div class="main-checkbox">
+                                                <input type="checkbox" value="none" id="checkbox1" name="check" />
+                                                <label for="checkbox1"></label>
+                                            </div>
+                                            <span class="text">Запомнить</span>
+                                            <button type="submit" class="btn btn-default">ВХОД</button>
+                                        </div>
+                                    </form>*@
+                            </div>
+
+                        </div><!-- /.row -->
+                    </div><!-- /.container -->
+                </div>
+            </div>
+        </div>
+        <!--End  Modal Autorization -->
+        <!-- Modal Registration -->
+        <div class="modal fade " id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height:1000px;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="border-radius:30px;">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-offset-3 col-md-12">
+                                <div id="validR">
+                                    @using (Ajax.BeginForm("Registration", "Account", null, new AjaxOptions { UpdateTargetId = "validR", HttpMethod = "POST" }, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+                                    {
+                                        <div>
+                                            <img src="~/Content/logo2.png" style="width:90px;height:90px;" />
+                                        </div>
+                                        <span class="heading" style="color: #1596bf;">
+                                            Регистрация
+                                        </span>
+                                     
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Nickname" })
+                                            <i class="fa fa-user"></i>
+                                            <p>@Html.ValidationMessageFor(m => m.Name)</p>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "E-mail" })
+                                            <i class="fas fa-at"></i>
+                                            <p>@Html.ValidationMessageFor(m => m.Email)</p>
+                                           
+                                        </div>
+
+
+                                        <div class="form-group">
+
+                                            <input type="file" name="Image" id="photo" class="hide" placeholder="Photo" />
+                                            <label for="photo" class="form-control pt-2 ml-0 pl-0">Выбрать фото</label>
+                                            <i class="fas fa-camera-retro"></i>
+                                        </div>
+
+
+                                        <!--<div> Загрузить картинку <input type="file" name="Image" /></div>-->
+                                        <div class="form-group help">
+                                            @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "Password" })
+                                            <i class="fa fa-lock"></i>
+
+                                        </div>
+                                        <div class="form-group help">
+                                            @Html.PasswordFor(x => x.RepeatPassword, new { @class = "form-control", placeholder = "Repeat Password" })
+                                            <i class="fa fa-lock"></i>
+                                            <p>@Html.ValidationMessageFor(m => m.Password)</p>
+                                        </div>
+                                        <div class="form-group mb-2 d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-default">РЕГИСТРАЦИЯ</button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                        </div><!-- /.row -->
+                    </div><!-- /.container -->
+                </div>
+            </div>
+        </div>
+        <!--End  Modal Registration -->
+
+    </div>
+
+
+
+</div>
+
+

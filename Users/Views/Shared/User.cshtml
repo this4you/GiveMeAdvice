@@ -1,0 +1,96 @@
+﻿@model Users.Models.UsersModel
+<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+    <div class="company_profile_info">
+
+
+        <div class="company-up-info">
+            @if (Model.MainUser.Photo != null && Model.MainUser.PhotoType != null)
+            {
+                <img src="@Url.Action("GetPhoto", "People",new {userId = @Model.MainUser.Id })" alt=" " style="width:80px;height:80px;">
+            }
+            else
+            {
+                <img src="~/Content/defaultAvatar.png" alt="" style="width:80px;height:80px;">
+            }
+            <h3>@Model.MainUser.UserName</h3>
+            <h4>Любимое слово</h4>
+            <ul>
+                <li><a href="#" title="" class="follow"><i class="far fa-bell"></i></a></li>
+                <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                @if (Model.MainUser.UsersWho.FirstOrDefault(u => u.UserId2 == Model.CurrentUser.Id) != null)
+                {
+                    @*<li><a href="#" title="" class="hire-us"><i class="far fa-question-circle" style="font-size:20px"></i></a></li>*@
+                <li id="@Model.MainUser.Id">
+                    <button class="btn btn-link dropdown-toggle hire-us" type="button" id="@Model.CurrentUser.Id" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="far fa-question-circle" style="font-size:20px; color:white;"></i>
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="@Model.CurrentUser.Id" style=" background-color:aliceblue; width:30px!important;">
+
+                        @*@using (Ajax.BeginForm("FriendRequest", "Friend", new AjaxOptions { UpdateTargetId = Model.MainUser.Id, HttpMethod = "POST" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("userId", Model.MainUser.Id)
+                            @Html.Hidden("url", Request.Url.AbsoluteUri)
+                            <button class="dropdown-item fas fa-check-circle" type="submit">
+                                Добавить
+                            </button>
+                        }*@
+
+                        @using (Html.BeginForm("FriendRequest", "Friend"))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("userId", Model.MainUser.Id)
+                            @Html.Hidden("url", Request.Url.AbsoluteUri)
+                            <button class="dropdown-item fas fa-check-circle" type="submit">
+                                Добавить
+                            </button>
+                        }
+
+
+                        @using (Html.BeginForm("DeleteAdvice", "Advice", new { }, FormMethod.Post, null))
+                        {
+                            <button class="dropdown-item far fa-times-circle" type="submit"> Откзаать</button>
+                        }
+
+                    </div>
+                </li>
+
+                }
+                else
+                {
+                    if (Model.CurrentUser.UsersWho.FirstOrDefault(u => u.UserId2 == Model.MainUser.Id) != null)
+                    {
+                        Html.RenderPartial("FriendSent");
+                    }
+                    else
+                    {
+                        if(Model.CurrentUser.ImFriend.FirstOrDefault(u=>u.FriendId == Model.MainUser.Id) != null)
+                        {
+                            Html.RenderPartial("FriendRequest");
+                            Console.WriteLine("РАБОТАЕТ");
+                        }
+                        else { 
+                        <li id="@Model.MainUser.Id">
+                            @*<li><a href="#" title="" class="hire-us"><i class="fas fa-user-plus" style="font-size:20px;"></i></a></li>*@
+                            @using (Ajax.BeginForm("FriendRequest", "People", new AjaxOptions { UpdateTargetId = Model.MainUser.Id, HttpMethod = "POST" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.Hidden("userId", Model.MainUser.Id)
+
+                                <button type="submit" class="btn btn-link hire-us">
+                                    <i class="fas fa-user-plus" style="font-size:20px; color:white;"></i>
+                                </button>
+
+                            }
+                        </li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+        @*<a href="#" title="" class="view-more-pro">View Profile</a>*@
+        @Html.ActionLink("View Profile","UserProfile","UserProfile",new {name = Model.MainUser.UserName },new {@class = "view-more-pro" })
+
+    </div><!--company_profile_info end-->
+</div>

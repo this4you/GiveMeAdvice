@@ -1,0 +1,223 @@
+﻿@model IEnumerable<Users.Entity.Request>
+<style>
+    nav ul li {
+        color: white;
+    }
+
+    .themes .social_links span {
+        background-color: #1596bf;
+    }
+
+    .themes .social_links a {
+        color: grey;
+        font-size: 17px;
+    }
+
+
+
+    .dropdown-menu a {
+        color: #898989;
+        padding: 10px 10px 15px 10px;
+        border-bottom: 2px solid #898989;
+        text-align: center;
+        font-size: 17px;
+    }
+
+        .dropdown-menu a:first-child {
+            padding-top: 10px;
+            margin-top: 0;
+        }
+
+        .dropdown-menu a:last-child {
+            color: #716b6b;
+            border-bottom: none;
+            padding-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .dropdown-menu a i {
+            color: #1596bf;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+    .dropdown-menu .dropdown-item:hover {
+        color: #1596bf;
+        background-color: white !important;
+    }
+
+    .ed-opts .dropdown-toggle::after {
+        display: none;
+    }
+
+    .ed-opts .dropdown-toggle {
+        color: #898989;
+        background-color: white;
+        border: none;
+    }
+
+        .ed-opts .dropdown-toggle:hover {
+            color: #898989;
+            background-color: white;
+            border: none;
+        }
+
+    .ed-opts .dropdown-menu .dropdown-item:first-of-type {
+        border-bottom: 1px solid #a1acb7;
+    }
+
+    .ed-opts .dropdown-menu .dropdown-item:hover {
+        color: #1596bf;
+    }
+
+    .ed-opts .dropdown-menu .dropdown-item {
+        color: #7e868e;
+        padding: 10px;
+        text-align: center;
+    }
+
+    li .dropdown-toggle::after {
+        display: none;
+    }
+
+    .notifications .dropdown-menu {
+        background-color: white;
+        margin-left: -190px;
+        margin-top: 10px;
+        width: 300px;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+    }
+
+    .notifications .n-top {
+        color: rgb(138, 128, 128);
+        font-size: 12px;
+        padding: 5px 20px;
+        padding-top: 0px;
+        border-bottom: 1px solid rgb(225, 222, 222);
+    }
+
+    .notifications .n-item {
+        margin: 0px 10px;
+        padding-top: 10px;
+        display: block;
+        height: 100px;
+        border-bottom: 1px solid rgb(191, 191, 191);
+    }
+
+        .notifications .n-item img {
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+
+        .notifications .n-item p strong {
+            color: black;
+            font-weight: bold;
+        }
+
+    .notifications .n-info {
+        width: 150px;
+        display: inline-block;
+        float: left;
+    }
+
+    .notifications .n-form {
+        margin-top: 20px;
+        display: inline-block;
+        float: right;
+    }
+
+        .notifications .n-form p {
+            padding-left: 15px;
+        }
+
+        .notifications .n-form button {
+            font-size: 14px;
+            border-radius: 20px;
+        }
+
+    .notifications .n-bottom {
+        background-color: #1596bf;
+        height: 60px;
+        margin-bottom: -10px;
+    }
+
+        .notifications .n-bottom a {
+            font-size: 18px;
+            display: block; /* Ссылка как блочный элемент */
+            text-align: center; /* Выравнивание по центру */
+            height: 100%; /* Высота на весь слой */
+            color: white !important;
+            padding-top: 20px !important;
+        }
+    .no-notif h1 {
+        padding: 10px;
+        color: grey;
+
+    }
+
+</style>
+
+<div class="notifications">
+    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+
+        <div class="n-top d-flex justify-content-between">
+            <div>Настройки</div>
+            <div>Очистить все</div>
+        </div>
+        @if (Model.Count() == 0)
+        {
+            <div class="text-center no-notif">
+                <h1>Новых уведомлений нет</h1>
+            </div>
+         }
+
+                @foreach (var item in Model)
+                {
+                    <div class="n-item">
+                        <div class="n-info">
+                            @if (item.UserWho.Photo != null && item.UserWho.PhotoType != null)
+                            {
+                                <img src="@Url.Action("GetPhoto", "People",new {userId = @item.UserWho.Id })" alt=" ">
+                            }
+                            else
+                            {
+                                <img src="~/Content/defaultAvatar.png" alt="">
+                            }
+                            <p><strong>@item.UserWho.UserName</strong> хочет добавить вас в список своих друзей</p>
+                        </div>
+                        <div class="n-form" id="@item.RequestId">
+                            @using (Html.BeginForm("FriendRequest", "Friend", FormMethod.Post, new { style="display:inline-block;" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.Hidden("userId", item.UserWho.Id)
+                                @Html.Hidden("url", Request.Url.AbsoluteUri)
+                                <button class="btn btn-primary" type="submit">Yes</button>
+                            }
+
+
+
+
+
+                            @*@using (Html.BeginForm("FriendRequest", "Friend", FormMethod.Post, new { style = "display:inline-block;" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("userId", item.UserWho.Id)
+            <button class="btn btn-primary" type="submit">Yes</button>
+        }*@
+
+                            <button class="btn btn-primary" type="submit">No</button>
+                            <p>1 час назад</p>
+                        </div>
+                    </div>
+
+                }
+
+                <div class="n-bottom text-center">
+                    <a href="@Url.Action("NotificationsPage")">Показать все уведомления</a>
+                </div>
+
+            </div>
+        </div>

@@ -1,0 +1,51 @@
+﻿@model Users.Entity.Advice
+@{
+    /**/
+
+    ViewBag.Title = "CreateAdvice";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Users.Models.AppUser user = ViewBag.User;
+}
+
+<div class="container-fluid"> 
+    <div class="col-sm-6 offset-sm-3   bg-light p-4 shadow-lg  ">
+        <div class="text-center">
+            <h2>Создание вашего личного совета</h2>
+        </div>
+        @using (Html.BeginForm("CreateAdvice", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="Data" value="@DateTime.Now" />
+            //<input type="hidden" name="User" value="@user" />
+            <input type="hidden" name="UserId" value="@user.Id" />
+            <div class="form-group">
+                <label>Тема: </label>
+                @Html.DropDownList("category", ViewBag.Categories as SelectList, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label>Заголовок</label>
+                @Html.TextBoxFor(x => x.Headline, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <div> Загрузить картинку <input type="file" name="Image" /></div>
+            </div>
+
+            <div class="form-group">
+                <label>Краткое описание</label>
+                @Html.TextAreaFor(x => x.Discription, new { @class = "form-control", rows = "5" })
+            </div>
+            <div class="form-group">
+                <label>основной текст</label>
+                @Html.TextAreaFor(x => x.Text, new { @class = "form-control", rows = "13" })
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Добавить запись на странице</button>
+            </div>
+        }
+    </div>
+    </div>
+
+
+

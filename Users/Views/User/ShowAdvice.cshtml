@@ -1,0 +1,47 @@
+﻿@model Users.Models.ShowAdvices
+
+@{
+                /**/
+
+                ViewBag.Title = "Мои записи";
+                Layout = "~/Views/Shared/_UserLayout.cshtml";
+                int totalItems = Model.Advices.Count();
+                int ItemsPerPage = 3;
+                int CurrentPage = (int)Math.Ceiling((decimal)totalItems / ItemsPerPage);
+}
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-2  p-0 mymenu">
+            @{ Html.RenderAction("Menu", "Nav"); }
+        </div>
+        <div class="col-sm-10 mt-5">
+
+            @for (int i = 1; i <= CurrentPage; i++)
+            {
+                <div class="row   justify-content-md-center">
+
+
+                    @foreach (var advice in Model.Advices.OrderByDescending(p => p.Data).Skip((i - 1) * ItemsPerPage).Take(ItemsPerPage))
+                    {
+
+                        Html.RenderPartial("Advice", advice);
+
+                    }
+
+
+
+                </div>
+            }
+
+
+        </div>
+
+    </div>
+    </div>
+
+
+
+
+
+

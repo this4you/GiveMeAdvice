@@ -1,0 +1,44 @@
+﻿.navbar .navbar-brand {
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+.navbar .navbar-nav {
+    
+    margin: 0 auto;
+}
+.navbar .mylink .btn {
+    border: 2px solid black !important;
+}
+.mynav {
+    background-color: #E6E6E6 !important;
+    background-size: cover;
+    min-height: 100vh;
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+.nav-link {
+    font-size:18px;
+}
+.mymenu {
+    border-right:5px solid gray;
+    font-size:22px;
+}
+.cardhead {
+    height: 4rem;
+}
+    .cardhead a {
+        display: block; /* Ссылка как блочный элемент */
+        text-align: center; /* Выравнивание по центру */
+        height: 100%; /* Высота на весь слой */
+        font-size: 30px;
+        color: #4682B4;
+    }
+
+
+
+   
+
+

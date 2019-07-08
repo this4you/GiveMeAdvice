@@ -1,0 +1,11 @@
+﻿@model Users.Models.AppUser
+
+@using (Ajax.BeginForm("Edit", "User", new AjaxOptions { UpdateTargetId = "post-sect", HttpMethod = "POST" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.TextAreaFor(x => x.Description, new { placeholder = "Введите информацию о себе ...", cols = 40, rows = 5, @style = "padding:10px;" })
+    
+    <button type="submit" class="btn btn-primary mt-2">Сохранить</button>
+
+
+}

@@ -1,0 +1,11 @@
+﻿.mynav {
+    background-image: url('back4.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
